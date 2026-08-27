@@ -17,11 +17,11 @@ def analyze_image():
     try:
         # فتح الصورة والتعامل معها بوضوح
         image = Image.open(file.stream)
-        prompt = "بصِف هذه الصورة بالتفصيل باللغة العربية واستخرج أهم العناصر الموجودة فيها"
+        prompt = "  قم بوصِف هذه الصورة بالتفصيل باللغة العربية واستخرج أهم العناصر الموجودة فيها"
         
-        # استدعاء الموديل بالطريقة الآمنة والصحيحة تماماً
+        # 🎯 التعديل هنا: غيرنا الاسم لـ gemini-1.5-pro عشان يشتغل معاك من غير أخطاء
         response = client.models.generate_content(
-            model='gemini-3.6-flash',
+            model='gemini-3.1-pro',
             contents=[prompt, image]
         )
         
