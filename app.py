@@ -21,7 +21,7 @@ def analyze_image():
         
         # 🎯 التعديل هنا: غيرنا الاسم لـ gemini-1.5-pro عشان يشتغل معاك من غير أخطاء
         response = client.models.generate_content(
-            model='gemini-3.1-pro',
+            model='gemini-1.5-pro',
             contents=[prompt, image]
         )
         
