@@ -17,9 +17,9 @@ def analyze_image():
     try:
         # فتح الصورة والتعامل معها بوضوح
         image = Image.open(file.stream)
-        prompt = "  قم بوصِف هذه الصورة بالتفصيل باللغة العربية واستخرج أهم العناصر الموجودة فيها"
+        prompt = "وصِف هذه الصورة بالتفصيل باللغة العربية واستخرج أهم العناصر الموجودة فيها"
         
-        # 🎯 التعديل هنا: غيرنا الاسم لـ gemini-1.5-pro عشان يشتغل معاك من غير أخطاء
+        # استخدام موديل مدعوم ومستقر لتحليل الصور
         response = client.models.generate_content(
             model='gemini-1.5-pro',
             contents=[prompt, image]
@@ -28,7 +28,7 @@ def analyze_image():
         return jsonify({'description': response.text})
         
     except Exception as e:
-        # طباعة الخطأ بالتفصيل في التيرمنال لو حصل تاني عشان نتابعه
+        # طباعة الخطأ بالتفصيل في التيرمنال لمتابعته لو حصل أي استثناء
         import traceback
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
